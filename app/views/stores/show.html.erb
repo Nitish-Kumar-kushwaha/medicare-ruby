@@ -1,0 +1,46 @@
+<div class="container">
+
+  <p class="alert alert-info"><%= notice %></p>
+
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Store Details</h5>
+
+      <div class="mb-3">
+        <strong>Name:</strong>
+        <%= @store.name %>
+      </div>
+
+      <div class="mb-3">
+        <strong>Purpose:</strong>
+        <%= @store.purpose %>
+      </div>
+
+      <div class="mb-3">
+        <strong>Category:</strong>
+        <%= @store.category %>
+      </div>
+
+      <div class="mb-3">
+        <strong>Price:</strong>
+        <%= @store.price %>
+      </div>
+
+      <div class="mb-3">
+        <strong>Description:</strong>
+        <%= @store.description %>
+      </div>
+
+      <div class="mb-3">
+        <%= image_tag @store.header_image, class: "img-thumbnail", style: "max-height: 200px; width: auto;" %>
+      </div>
+
+
+      <div class="mb-3">
+        <%= link_to 'Edit', edit_store_path(@store), class: "btn btn-primary" %>
+        <%= link_to 'Back', stores_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>

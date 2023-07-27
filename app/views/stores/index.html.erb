@@ -1,0 +1,48 @@
+<div class="container">
+  <!-- Display the 'notice' message if present -->
+  <p class="alert alert-info"><%= notice %></p>
+
+  <!-- Heading for Stores -->
+  <h1>Stores</h1>
+
+  <!-- Table to display the store data -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Purpose</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th colspan="3">Actions</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Loop through the @stores and display each store's data -->
+      <% @stores.each do |store| %>
+        <tr>
+          <td><%= store.name %></td>
+          <td><%= store.purpose %></td>
+          <td><%= store.category %></td>
+          <td><%= store.price %></td>
+          <td><%= store.description %></td>
+          <td><%= link_to 'Show', store, class: 'btn btn-primary btn-sm' %></td>
+          <td><%= link_to 'Edit', edit_store_path(store), class: 'btn btn-warning btn-sm' %></td>
+          <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
+          <td>
+            <p>
+              <%= image_tag store.header_image, class: 'img-thumbnail', style: 'max-height: 300px;' %>
+            </p>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <br>
+
+  <%= link_to 'New Store', new_store_path, class: 'btn btn-success' %>
+</div>

@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <p class="alert alert-info"><%= notice %></p>
+
+  <p>
+    <strong>Cart:</strong>
+    <%= @line_item.cart_id %>
+  </p>
+
+  <p>
+    <strong>Store:</strong>
+    <%= @line_item.store_id %>
+  </p>
+
+  <p>
+    <strong>Quantity:</strong>
+    <%= @line_item.quantity %>
+  </p>
+
+  <div class="mt-3">
+    <%= link_to 'Edit', edit_line_item_path(@line_item), class: 'btn btn-primary' %> |
+    <%= link_to 'Back', line_items_path, class: 'btn btn-secondary' %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+
+    <h1 class="mb-4">Editing Store</h1>
+
+
+    <div class="row">
+      <div class="col-lg-6">
+        <%= render 'form', store: @store %>
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <%= link_to 'Show', @store, class: "btn btn-primary me-2" %>
+      <%= link_to 'Back', stores_path, class: "btn btn-secondary" %>
+    </div>
+  </div>

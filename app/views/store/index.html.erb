@@ -1,0 +1,33 @@
+<style>
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit the description to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <% @my_stores.each do |store| %>
+      <div class="col-lg-4 mb-4">
+        <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded border on-border" style="width: 25rem;">
+          <div class="justify-content-center" style="width: 20rem; height:20rem"><%= image_tag store.header_image %></div>
+          <div class="card-body">
+            <h3 class="card-title"><%= store.name %></h3>
+            <h4>Category:<span class="badge text-bg-info"><%=store.category%></span></h4>
+            <h5>Price:<span class="badge bg-danger">₹<%= store.price %></span></h5>
+            <p class="card-text"><%= store.description %></p>
+            <%=button_to "Buy Now", line_items_path(:store_id => store.id), class:"btn btn-success"%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

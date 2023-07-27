@@ -1,0 +1,48 @@
+<div class="container">
+  <%= form_with(model: store) do |form| %>
+    <% if store.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading"><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h4>
+        <ul>
+          <% store.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :purpose, class: "form-label" %>
+      <%= form.text_field :purpose, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :category, class: "form-label" %>
+      <%= form.text_field :category, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :price, class: "form-label" %>
+      <%= form.text_field :price, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :description, class: "form-label" %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :header_image, class: "form-label" %>
+      <%= form.file_field :header_image, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.submit "Save", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
