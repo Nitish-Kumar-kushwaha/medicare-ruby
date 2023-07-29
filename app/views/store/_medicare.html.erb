@@ -1,0 +1,50 @@
+<style>
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+
+    .card:hover .btn-success {
+      background-color: #f70c0c;
+    }
+
+    .card:hover .btn-success span {
+      color: #fff;
+    }
+  </style>
+
+  <div class="container p-5">
+    <div class="row">
+      <% @search_store.each do |store| %>
+        <div class="col-lg-4 mb-4">
+          <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded border no-border">
+            <div class="text-center" style="height: 15rem;">
+              <%= image_tag store.header_image, class: "", alt: "#{store.name} Image" %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title mb-0"><%= store.name %></h5>
+              <p class="card-subtitle text-muted mb-2"><%= store.category %></p>
+              <h6 class="card-subtitle mb-2 text-danger">₹<%= store.price %></h6>
+              <p class="card-text"><%= store.description %></p>
+              <%= button_to "Buy Now", line_items_path(store_id: store.id), class: "btn btn-success btn-sm"%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

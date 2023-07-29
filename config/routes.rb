@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get'/admin/login', to: "admin#login"
   get '/logout', to: 'admin#destroy', as: :logout
   get'/store/checkout', to:'store#checkout'
+  post'/store/checkout'
+  get'/store/search', to:'store#search'
+  post'/store/search'
   devise_for :users
   root 'home#index'
 
